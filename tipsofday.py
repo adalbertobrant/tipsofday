@@ -58,7 +58,7 @@ except Exception as exc:  # pragma: no cover
 
 APP_NAME = "tipsofday"
 USER_AGENT = (
-    f"tipsofday/{__version__} (+https://github.com/tipsofday/tipsofday; "
+    f"tipsofday/{__version__} (+https://github.com/adalbertobrant/tipsofday; "
     "open-source news summarizer; contact: maintainer@tipsofday.local)"
 )
 

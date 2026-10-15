@@ -61,7 +61,7 @@ ollama pull gemma4:e2b      # ~4.6 GB
 ## 3. tipsofday
 
 ```bash
-pipx install "tipsofday[license] @ git+https://github.com/tipsofday/tipsofday"
+pipx install "tipsofday[license] @ git+https://github.com/adalbertobrant/tipsofday"
 ```
 
 `[license]` adds the `cryptography` dependency used to verify Pro keys. Drop it if you
@@ -70,7 +70,7 @@ only want the free tier.
 From a clone, instead:
 
 ```bash
-git clone https://github.com/tipsofday/tipsofday
+git clone https://github.com/adalbertobrant/tipsofday
 cd tipsofday
 python3 -m venv .venv
 . .venv/bin/activate

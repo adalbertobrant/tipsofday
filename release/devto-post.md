@@ -57,14 +57,15 @@ that is what "checked for factual accuracy" means here.
 
 ## 5. Repo URL
 
-The body links to `https://github.com/tipsofday/tipsofday`. **Replace every occurrence with
-your real repository URL** before publishing (the README, `pipx install` instructions and the
-`{% embed %}` tag all point at it).
+The body links to `https://github.com/adalbertobrant/tipsofday`. Publish the repo at that exact
+path — the README, `pipx install` instructions and the `{% embed %}` tag all point at it. If you
+ever move the repo, update every occurrence of the URL (`grep -rn github.com/adalbertobrant .`
+outside `.venv`).
 
 The GitHub embed renders the repo card:
 
 ```text
-{% embed https://github.com/<your-user>/tipsofday %}
+{% embed https://github.com/adalbertobrant/tipsofday %}
 ```
 
 ## 6. Cover image

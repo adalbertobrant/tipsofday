@@ -40,8 +40,8 @@ It is deliberately **not** investment advice: it never says buy or sell, never g
 target, and every briefing ends with a disclaimer. It is a *news summariser with guardrails*,
 and the guardrails are the product.
 
-**[→ Read the full README](https://github.com/tipsofday/tipsofday#readme)** ·
-**[→ The honest eval report](https://github.com/tipsofday/tipsofday/blob/main/eval/RESULTS.md)**
+**[→ Read the full README](https://github.com/adalbertobrant/tipsofday#readme)** ·
+**[→ The honest eval report](https://github.com/adalbertobrant/tipsofday/blob/main/eval/RESULTS.md)**
 <!-- Replace the repo URL with your own once the repository is public. -->
 
 ---
@@ -50,7 +50,7 @@ and the guardrails are the product.
 
 There is no hosted link, and that is the point — the model runs on *your* hardware, so a
 "deployed demo" would be a different product. The demo is a 60–90 second screen recording
-following [`release/demo-script.md`](https://github.com/tipsofday/tipsofday/blob/main/release/demo-script.md):
+following [`release/demo-script.md`](https://github.com/adalbertobrant/tipsofday/blob/main/release/demo-script.md):
 airplane mode on, `ollama ps` proves the model is local, network back on, `tipsofday run`
 streams a briefing, then `eval/replay.py` shows the guardrails firing.
 
@@ -86,7 +86,7 @@ Apache-2.0. The whole application is one readable Python file
 the replay harness, and the release copy are in the same repo.
 
 ```text
-{% embed https://github.com/tipsofday/tipsofday %}
+{% embed https://github.com/adalbertobrant/tipsofday %}
 ```
 
 - `tests/` — **32 offline unit + integration tests** (no network, no model). CI on GitHub
@@ -126,7 +126,7 @@ Five design rules hold it together, and each one exists because something broke 
 
 I built a replay harness that feeds *frozen* HTTP bodies back through the real pipeline, so
 the numbers are reproducible offline. Full detail, including everything that went wrong, is
-in [`eval/RESULTS.md`](https://github.com/tipsofday/tipsofday/blob/main/eval/RESULTS.md).
+in [`eval/RESULTS.md`](https://github.com/adalbertobrant/tipsofday/blob/main/eval/RESULTS.md).
 The short version, on an RTX 5050 (8 GB):
 
 | | English | pt-BR |

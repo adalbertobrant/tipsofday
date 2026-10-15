@@ -83,13 +83,13 @@ systemctl --user enable --now ollama     # or: ollama serve &
 ## 3. tipsofday
 
 ```bash
-pipx install "tipsofday @ git+https://github.com/tipsofday/tipsofday"
+pipx install "tipsofday @ git+https://github.com/adalbertobrant/tipsofday"
 ```
 
 Or, from a clone (useful if you want to hack on it):
 
 ```bash
-git clone https://github.com/tipsofday/tipsofday
+git clone https://github.com/adalbertobrant/tipsofday
 cd tipsofday
 python3 -m venv .venv
 . .venv/bin/activate
@@ -99,7 +99,7 @@ pip install -e .
 Pro license keys use Ed25519 signatures; install the optional extra so `activate` works:
 
 ```bash
-pipx install "tipsofday[license] @ git+https://github.com/tipsofday/tipsofday"
+pipx install "tipsofday[license] @ git+https://github.com/adalbertobrant/tipsofday"
 ```
 
 ---

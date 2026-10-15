@@ -78,7 +78,7 @@ ollama pull gemma4:e2b      # ~4.6 GB
 ## 4. tipsofday
 
 ```powershell
-pipx install "tipsofday[license] @ git+https://github.com/tipsofday/tipsofday"
+pipx install "tipsofday[license] @ git+https://github.com/adalbertobrant/tipsofday"
 ```
 
 `[license]` adds the `cryptography` dependency used to verify Pro keys; drop it for the

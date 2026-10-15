@@ -55,7 +55,7 @@ On a low-memory machine, pull the smaller Gemma 4 tier instead
 ### 2. Install tipsofday
 
 ```bash
-git clone https://github.com/tipsofday/tipsofday
+git clone https://github.com/adalbertobrant/tipsofday
 cd tipsofday
 pipx install .
 # or, without pipx:
