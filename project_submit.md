@@ -89,7 +89,7 @@ the replay harness, and the release copy are in the same repo.
 {% embed https://github.com/tipsofday/tipsofday %}
 ```
 
-- `tests/` — **21 offline unit + integration tests** (no network, no model). CI on GitHub
+- `tests/` — **32 offline unit + integration tests** (no network, no model). CI on GitHub
   Actions, Python 3.11–3.14.
 - `eval/` — `freeze.py` (capture a day), `replay.py` (serves frozen HTTP bodies back through
   the *real* pipeline), `backtest.py`, and `RESULTS.md`.
@@ -114,8 +114,9 @@ Five design rules hold it together, and each one exists because something broke 
 
 1. **Numbers come from APIs, never from the model.** Every number in the output is checked
    against the market snapshot; sentences with ungrounded numbers are dropped.
-2. **Web text is data, never instructions.** Article text is sanitised and wrapped in
-   delimiters before it reaches the model.
+2. **Web text is data, never instructions.** Article text is wrapped in data delimiters and
+   known injection phrasing is redacted — on the way *in* to the model and on its output
+   before it is rendered.
 3. **The pick is capped.** No micro-caps or illiquid tokens can become the focus asset.
 4. **"No clear signal today" is a valid answer** — and the correct one when news is thin.
 5. **Local SQLite history** makes a track record possible, and the track record refuses to
@@ -137,7 +138,7 @@ The short version, on an RTX 5050 (8 GB):
 | Mean latency per briefing | 22.9 s | 24.3 s |
 | Cost in API spend | **$0.00** | **$0.00** |
 
-Two findings I would rather not print, but a review that hides them is not a review:
+Three findings I would rather not print, but a review that hides them is not a review:
 
 - **A guardrail silently disabled the product.** The model kept naming BTC (negative news ⇒
   ineligible), so the app returned "no clear signal" on **6 of 6 days**. Safe, and useless.
@@ -145,6 +146,12 @@ Two findings I would rather not print, but a review that hides them is not a rev
   barely fires and still declines on 5 of 6. That instability is itself the finding: a 4B
   model's judgement is language-dependent, so the output is framed as a **news summary**, not
   a signal.
+- **A security guardrail was dead code.** A later security pass found the prompt-injection
+  scrubber — written and unit-tested — was never actually called by the pipeline, so
+  injection phrasing was redacted nowhere at runtime, and the fetch path accepted any URL
+  (an SSRF hole). Both are fixed: redaction now runs on input *and* output, and non-public
+  hosts are refused. The redaction is text-preserving, so the replay numbers above do not
+  move (re-verified on the hostile days, both languages).
 - **It is honestly measured on n = 1 real day.** One captured day plus five derived stress
   probes (red/bull, injection, shill, thin) — the probes test guardrails, not accuracy, and
   the report says so in its own "threats to validity" section. The backtest prints

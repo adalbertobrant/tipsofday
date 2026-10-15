@@ -229,6 +229,28 @@ warning instead of a headline percentage until there are enough closed days.
 
 ---
 
+### A security bug we found and fixed
+
+Auditing the injection path turned up that the scrubber was **dead code**: `sanitize_untrusted`
+was written and unit-tested but never called by the pipeline, so the injection patterns
+("ignore previous instructions", "print your system prompt", …) were redacted *nowhere* at
+runtime. The only live defences were the data delimiters, the system prompt and the
+post-filter. Separately, `HttpClient.get_text` fetched any `http(s)` URL with no host check —
+a feed item could point it at `localhost` or a cloud metadata endpoint (SSRF).
+
+Both are fixed: the redaction now runs where untrusted text enters a prompt (`wrap_untrusted`)
+**and** where the model's output leaves (`enforce_grounding`, `scrub_title`), and
+`url_is_fetchable` refuses non-`http(s)` schemes and hosts that resolve to a loopback,
+private, link-local, reserved or unspecified address.
+
+The redaction is text-preserving, so it changes nothing on the real corpus: verified across
+all 164 captured bodies, the only texts it alters are the two synthetic hostile bodies
+(their injected phrases become `[redacted-instruction]`). Re-running `-injection` and
+`-shill` with the fix in place still measures `injection_hits = 0` and
+`banned_after_filter = 0` in both languages, so **no value in the tables above changes**.
+
+---
+
 ## Threats to validity (the list a judge should hold me to)
 
 1. **n = 1 real day.** Everything about *model quality* rests on one day of news plus five
@@ -252,7 +274,7 @@ git clone <repo> && cd tipsofday
 python -m venv .venv && . .venv/bin/activate && pip install -e ".[dev]"
 ollama pull gemma4:e4b
 
-python -m pytest tests/ -q                      # 21 offline tests, no network, no model
+python -m pytest tests/ -q                      # 32 offline tests, no network, no model
 python eval/replay.py --backend mock --all      # deterministic guardrail baseline
 python eval/replay.py --backend ollama --model gemma4:e4b --all --lang en
 python eval/replay.py --backend ollama --model gemma4:e4b --all --lang pt

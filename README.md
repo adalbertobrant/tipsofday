@@ -147,8 +147,9 @@ flowchart TD
 
 1. **Numbers come from APIs, never from the model.** Every number in the output is
    checked against the market snapshot; sentences with ungrounded numbers are dropped.
-2. **Web text is data, never instructions.** Article text is sanitized and wrapped in
-   delimiters before it reaches the model; a prompt-injection test set is part of CI.
+2. **Web text is data, never instructions.** Article text is wrapped in explicit data
+   delimiters and known injection phrasings are redacted — both on the way *in* to the model
+   and on the model's output before it is rendered; a prompt-injection test set is part of CI.
 3. **The pick is capped.** No micro-caps or illiquid tokens (configurable market-cap
    and volume floors) can ever become the focus asset.
 4. **"No clear signal today" is a valid answer**, and the correct one when the news
@@ -280,7 +281,7 @@ tipsofday status
 ## Testing & evaluation
 
 ```bash
-python -m pytest tests/ -q                 # 21 offline tests, no network, no model
+python -m pytest tests/ -q                 # 32 offline tests, no network, no model
 python eval/freeze.py --synthetic          # capture today's inputs for replay
 python eval/replay.py --backend mock --all # deterministic guardrail metrics
 python eval/replay.py --backend ollama --model gemma4:e4b --all
@@ -293,10 +294,31 @@ product, are in [`eval/RESULTS.md`](eval/RESULTS.md).
 
 ---
 
+## Security posture
+
+Small, local, single-user tool — but it reads hostile web pages, so the sharp edges are
+handled deliberately:
+
+- **Prompt injection.** Untrusted text is delimited and known injection phrasing is redacted
+  on input *and* output. Model output is never trusted: numbers are grounded against the
+  market snapshot, advice phrasing is filtered, and a hijacked generation is scrubbed.
+- **No code execution from data.** No `eval`/`exec`/`pickle`; YAML is loaded with
+  `safe_load`; model JSON is validated with Pydantic.
+- **Fetch guard (SSRF).** Non-`http(s)` URLs and hosts resolving to loopback/private/
+  link-local/reserved addresses are refused, so a malicious feed cannot steer the fetcher at
+  `localhost` or a cloud metadata endpoint.
+- **Secrets.** There are no API keys. The license key is verified offline with a committed
+  Ed25519 **public** key (the signing key is vendor-only, gitignored); the cached key file is
+  written `0600`.
+- **Privacy.** Generation is local; prompts never leave the machine. The default Ollama
+  endpoint is `127.0.0.1`. Anything you add to `sources.yaml` is fetched normally.
+
+---
+
 ## Project layout
 
 ```
-tipsofday.py            the entire application (single file, ~2200 lines)
+tipsofday.py            the entire application (single file, ~2500 lines)
 tests/                  offline unit + integration tests
 eval/                   freeze / replay / backtest harness + RESULTS.md
 release/                landing copy, pricing, store setup, install guides
