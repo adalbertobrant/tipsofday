@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local secrets and vendor keys — never commit
+release/vendor/private_key.pem
+*.pem
+!release/vendor/README.md
+
+# Local state
+*.sqlite3
+*.db
+eval/artifacts/*.log
+eval/artifacts/sandbox/
+.DS_Store
+
+# Editors
+.idea/
+.vscode/

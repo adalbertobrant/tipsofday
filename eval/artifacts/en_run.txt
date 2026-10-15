@@ -1,0 +1,70 @@
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ Daily crypto briefing                                                        │
+│ Generated at: 2026-10-15T12:26:20  |  Local model: ollama:gemma4:e4b         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────── Market mood ─────────────────────────────────╮
+│ Market sentiment appears cautious as broader risk-off movements and macroeco │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────── Asset in focus today ────────────────────────────╮
+│ No clear signal today                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+┏━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      ┃ Top stories                                                           ┃
+┡━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ [-2] │ Nearly billion in crypto bets liquidated as bitcoin, ether and XRP    │
+│      │ slide                                                                 │
+│      │                                                                       │
+│      │ CoinDesk -                                                            │
+│      │ https://www.coindesk.com/markets/2026/10/15/nearly-usd1-billion-in-c… │
+│ [-2] │ Bitcoin drops amid broader exit from riskier investments; gold rises  │
+│      │                                                                       │
+│      │ CoinDesk -                                                            │
+│      │ https://www.coindesk.com/daybook-us/2026/10/15/bitcoin-copper-stocks… │
+│ [-1] │ Bitcoin holds above $80,000 as Asian stock rout drags altcoins lower  │
+│      │ Bitcoin fell to just above $80,000 due to a downturn in Asian stocks  │
+│      │ which pulled altcoins downward.                                       │
+│      │ CoinDesk -                                                            │
+│      │ https://www.coindesk.com/markets/2026/10/15/bitcoin-holds-above-usd8… │
+│ [-2] │ Bitcoin wilts as Fed rate uncertainty weighs; Kospi plunges 8%        │
+│      │ Bitcoin experienced a decline as persistent uncertainty regarding     │
+│      │ Federal Reserve interest rates weighed on the market.                 │
+│      │ CoinDesk -                                                            │
+│      │ https://www.coindesk.com/markets/2026/10/15/bitcoin-is-back-below-us… │
+└──────┴───────────────────────────────────────────────────────────────────────┘
+╭───────────────────────────────── Runners-up ─────────────────────────────────╮
+│   - ETH:                                                                     │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+┏━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━┓
+┃ Market     ┃ price        ┃ 24h     ┃
+┡━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━┩
+│ BTC        │ $80,975.0000 │ -2.87%  │
+│ ETH        │ $2,363.2200  │ -5.50%  │
+│ BNB        │ $720.9100    │ -2.81%  │
+│ XRP        │ $1.3100      │ -4.71%  │
+│ SOL        │ $102.3200    │ -4.43%  │
+│ DOGE       │ $0.0803      │ -4.72%  │
+│ LINK       │ $12.0400     │ -6.55%  │
+│ ADA        │ $0.2215      │ -5.60%  │
+│ AVAX       │ $9.5700      │ -6.10%  │
+│ TON        │ $1.3400      │ -2.03%  │
+│ Fear&Greed │ 53           │ Neutral │
+│ BTC dom.   │ 60.02%       │         │
+└────────────┴──────────────┴─────────┘
+╭────────────────────────────── Sources (failed) ──────────────────────────────╮
+│ - Portal do Bitcoin: failed to fetch https://portaldobitcoin.uol.com.br/feed │
+│ For more information c                                                       │
+│ - InfoMoney Cripto: failed to fetch https://www.infomoney.com.br/mercados/cr │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ DISCLAIMER: informational only, not investment advice. Crypto is highly vola │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────── safety ───────────────────────────────────╮
+│ - ungrounded numbers removed from reason: [24.0, 7.0]                        │
+│ - ungrounded numbers removed from reason: [1.0]                              │
+│ - ungrounded numbers removed from story.summary: [483.0]                     │
+│ - ungrounded numbers removed from story.title: [1.0]                         │
+│ - ungrounded numbers removed from story.summary: [24.0]                      │
+│ - ungrounded numbers removed from runner_up.note: [1.0]                      │
+│ - no eligible news-signal candidate; forcing no-clear-signal                 │
+╰──────────────────────────────────────────────────────────────────────────────╯

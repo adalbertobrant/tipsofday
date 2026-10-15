@@ -1,0 +1,89 @@
+# tipsofday — news sources (user-editable)
+#
+# This is a template. `tipsofday init` copies it to
+#   ~/.config/tipsofday/sources.yaml
+# which is the file the app actually reads (override with --sources PATH
+# or TIPSOFDAY_SOURCES). Every feed is optional: if one source is down the
+# briefing still runs with the rest.
+#
+# Fields:
+#   name        display name (shown in the "Sources" section of the briefing)
+#   url         RSS/Atom feed URL
+#   lang        "pt" or "en" — hint used when picking sources per locale
+#   reliability 0..1 — weights the story during aggregation
+#   enabled     false keeps the entry but stops fetching it
+
+feeds:
+  # --- english sources ---
+  - name: CoinDesk
+    url: https://www.coindesk.com/arc/outboundfeeds/rss/
+    lang: en
+    reliability: 0.9
+    enabled: true
+
+  - name: Cointelegraph
+    url: https://cointelegraph.com/rss
+    lang: en
+    reliability: 0.8
+    enabled: true
+
+  - name: The Block
+    url: https://www.theblock.co/rss.xml
+    lang: en
+    reliability: 0.85
+    enabled: true
+
+  - name: Decrypt
+    url: https://decrypt.co/feed
+    lang: en
+    reliability: 0.8
+    enabled: true
+
+  - name: CryptoSlate
+    url: https://cryptoslate.com/feed/
+    lang: en
+    reliability: 0.7
+    enabled: true
+
+  - name: Bitcoin Magazine
+    url: https://bitcoinmagazine.com/feed
+    lang: en
+    reliability: 0.7
+    enabled: true
+
+  - name: r/CryptoCurrency
+    url: https://www.reddit.com/r/CryptoCurrency/.rss
+    lang: en
+    reliability: 0.5
+    enabled: true
+
+  # --- portuguese sources ---
+  - name: Portal do Bitcoin
+    url: https://portaldobitcoin.uol.com.br/feed/
+    lang: pt
+    reliability: 0.8
+    enabled: true
+
+  - name: Cointelegraph Brasil
+    url: https://cointelegraph.com.br/rss
+    lang: pt
+    reliability: 0.75
+    enabled: true
+
+  - name: Livecoins
+    url: https://livecoins.com.br/feed/
+    lang: pt
+    reliability: 0.7
+    enabled: true
+
+  - name: InfoMoney Cripto
+    url: https://www.infomoney.com.br/mercados/criptomoedas/feed/
+    lang: pt
+    reliability: 0.7
+    enabled: true
+
+# Direct article links (no feed needed) — your own links for the next run.
+# They are fetched, sanitized and mixed into the same pipeline; links added
+# here are not stored. You can also pass them per-run:
+#   tipsofday run --url https://example.com/post-a --url https://example.com/post-b
+urls: []
