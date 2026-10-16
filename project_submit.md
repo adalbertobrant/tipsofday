@@ -75,19 +75,15 @@ A text stand-in for the video — the real render, pt-BR by default, English wit
 Reproduce it yourself in three commands: `ollama pull gemma4:e4b`, `pipx install .`,
 `tipsofday run --refresh --lang en`.
 
-<!-- TODO before publishing: paste the video/GIF link here and embed it. -->
-
 ---
 
 ## Code
 
 Apache-2.0. The whole application is one readable Python file
-(`tipsofday.py`, ~2,300 lines) so it can be audited in one sitting and split later. Tests,
+(`tipsofday.py`, ~2,500 lines) so it can be audited in one sitting and split later. Tests,
 the replay harness, and the release copy are in the same repo.
 
-```text
 {% embed https://github.com/adalbertobrant/tipsofday %}
-```
 
 - `tests/` — **32 offline unit + integration tests** (no network, no model). CI on GitHub
   Actions, Python 3.11–3.14.
@@ -189,13 +185,14 @@ Because this specific product does not work as a closed one.
 
 ## My Agent Session
 
-<!-- Optional, but judges love it. Save your session with DevRelay and embed it with the
-     agent_session tag, or link to it. TODO: attach the DevRelay agent session for this build. -->
-
 The build was done agent-first: the whole app was written against a written spec
 (`PROMPT.md`), the model layer and guardrails were benchmarked before being trusted, and the
-evaluation harness was built to try to *falsify* the product rather than flatter it. The
-session is being saved with DevRelay; I will embed it here before publishing.
+evaluation harness was built to try to *falsify* the product rather than flatter it.
+
+The session below is the condensed transcript of that build — reasoning traces dropped, tool
+inputs and outputs truncated, machine paths sanitised:
+
+{% agent_session 908 %}
 
 ---
 
