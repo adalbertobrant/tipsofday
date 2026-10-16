@@ -59,7 +59,7 @@ except Exception as exc:  # pragma: no cover
 APP_NAME = "tipsofday"
 USER_AGENT = (
     f"tipsofday/{__version__} (+https://github.com/adalbertobrant/tipsofday; "
-    "open-source news summarizer; contact: maintainer@tipsofday.local)"
+    "open-source news summarizer; contact: adalbertobrant@gmail.com), for pro version"
 )
 
 # Ed25519 public key used to verify offline license keys (vendor holds the private key).
