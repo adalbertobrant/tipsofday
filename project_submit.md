@@ -1,9 +1,3 @@
----
-title: tipsofday — a daily crypto briefing written on your own laptop by a local Gemma model
-published: false
-tags: devchallenge, hf26challenge, ai, opensource
----
-
 *This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle](https://dev.to/challenges/hacktoberfest-week2-2026-10-12)*
 
 > **One-line pitch:** a `pipx install`-and-go CLI that turns today's crypto news into a

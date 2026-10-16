@@ -31,15 +31,21 @@ Add up to two more from this set (skip anything that does not apply):
 ai, opensource, python, machinelearning, gemma, ollama, showdev
 ```
 
-## 3. Front matter (already in `project_submit.md`)
+## 3. No front matter — pass metadata as fields
 
-```yaml
----
-title: tipsofday — a daily crypto briefing written on your own laptop by a local Gemma model
-published: false
-tags: devchallenge, hf26challenge, ai, opensource
----
-```
+`project_submit.md` is the post body alone, with **no YAML front matter**. Do not add one.
+
+DEV parses YAML front matter out of the `body_markdown` it receives, so a body carrying
+`published: false` silently **un-publishes** the post on every write. That is how the first
+publish of this post regressed to a draft.
+
+Pass the metadata as separate fields instead:
+
+- `title`: tipsofday — a daily crypto briefing written on your own laptop by a local Gemma model
+- `tags`: `devchallenge, hf26challenge, ai, opensource`
+- `published`: `true`
+
+`published: false` is only for staging a draft.
 
 ## 4. AI disclosure (required by DEV)
 
