@@ -31,7 +31,7 @@ dependencies = [
 [project.optional-dependencies]
 license = ["cryptography>=42,<52"]
 llamacpp = ["llama-cpp-python>=0.2.70,<1"]
-dev = ["pytest>=8,<10", "ruff>=0.5,<1", "mypy>=1.10,<2", "cryptography>=42,<52", "build>=1"]
+dev = ["pytest>=8,<10", "ruff>=0.5,<1", "mypy>=1.10,<3", "cryptography>=42,<52", "build>=1"]
 
 [project.scripts]
 tipsofday = "tipsofday:main"
